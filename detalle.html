@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cargando Propiedad... | Inmobiliaria Danny Moya</title>
+  
+  <!-- Metadatos SEO -->
+  <meta name="description" content="Visualiza todos los detalles técnicos, dimensiones, fotos de alta resolución, descripción de entornos y mapa exacto de la propiedad de tus sueños. Contacta directamente a Danny Moya.">
+  <meta name="keywords" content="detalles de propiedad, comprar casa cochabamba, casas minimalistas, mapa de ubicacion, danny moya, tiquipaya, cercado, sacaba, quillacollo">
+  <meta name="author" content="Danny Moya Inmobiliaria">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cabecera de Navegación -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="header-logo">
+        <div class="logo-icon">M</div>
+        <div class="logo-text">Danny<span>Moya</span></div>
+      </a>
+      
+      <ul class="nav-menu" id="nav-links-list">
+        <li><a href="index.html" class="nav-link" id="nav-home">Inicio</a></li>
+        <li><a href="comprar.html" class="nav-link" id="nav-buy">Comprar</a></li>
+        <li><a href="vender.html" class="nav-link" id="nav-sell">Vender</a></li>
+        <li><a href="vender.html#contact-section" class="nav-btn" id="nav-contact">Contactar</a></li>
+      </ul>
+      
+      <div class="menu-toggle" id="mobile-burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner de Espacio -->
+  <div style="height: 100px; background-color: var(--primary);"></div>
+
+  <!-- Contenedor Principal del Detalle -->
+  <section class="container" id="detail-main-section">
+    <div class="detail-grid">
+      
+      <!-- LADO IZQUIERDO: DETALLES, IMÁGENES Y MAPA -->
+      <div class="detail-main">
+        
+        <!-- Carrusel de Alta Resolución -->
+        <div class="detail-carousel-container animate-fade-in">
+          <div class="detail-tags" id="detail-tags">
+            <!-- Cargado por JS -->
+          </div>
+          <span class="detail-zone" id="detail-zone"><!-- Cargado por JS --></span>
+          
+          <div class="detail-carousel-track" id="detail-carousel-track">
+            <!-- Imagenes dinámicas inyectadas por JS -->
+          </div>
+          
+          <div class="carousel-btn carousel-btn-prev">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </div>
+          <div class="carousel-btn carousel-btn-next">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+          
+          <div class="carousel-indicators" id="detail-carousel-indicators">
+            <!-- Indicadores dinámicos inyectados por JS -->
+          </div>
+        </div>
+
+        <!-- Encabezado de la Propiedad -->
+        <div class="detail-header animate-fade-in-up">
+          <h2 id="detail-title">Título de la propiedad</h2>
+          <div class="property-address" id="detail-address">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Dirección de la propiedad, Zona</span>
+          </div>
+        </div>
+
+        <!-- Ficha de Características Principales -->
+        <div class="detail-features-grid animate-fade-in-up delay-100">
+          
+          <!-- Tamaño (Área) -->
+          <div class="detail-feature-card" id="feat-card-size">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="15" y1="3" x2="15" y2="21"></line>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="3" y1="15" x2="21" y2="15"></line>
+            </svg>
+            <span class="detail-feature-label">Área Total</span>
+            <span class="detail-feature-val" id="feat-size">0 m²</span>
+          </div>
+
+          <!-- Dormitorios -->
+          <div class="detail-feature-card" id="feat-card-dorm">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 4v16M22 4v16M2 8h20M2 16h20"></path>
+              <rect x="6" y="10" width="12" height="4" rx="1"></rect>
+            </svg>
+            <span class="detail-feature-label">Dormitorios</span>
+            <span class="detail-feature-val" id="feat-dorm">0</span>
+          </div>
+
+          <!-- Baños -->
+          <div class="detail-feature-card" id="feat-card-bath">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16v16H4zM4 10h16M10 4v16"></path>
+            </svg>
+            <span class="detail-feature-label">Baños</span>
+            <span class="detail-feature-val" id="feat-bath">0</span>
+          </div>
+
+          <!-- Estado -->
+          <div class="detail-feature-card" id="feat-card-entorno">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="detail-feature-label">Entrega</span>
+            <span class="detail-feature-val" style="color: #10b981; font-weight: 800;">Inmediata</span>
+          </div>
+
+        </div>
+
+        <!-- Descripción Completa -->
+        <div class="detail-description animate-fade-in-up delay-200">
+          <h3>Descripción del Lugar</h3>
+          <p id="detail-desc">Cargando descripción de la propiedad...</p>
+        </div>
+
+        <!-- Ubicación en Google Map -->
+        <div class="detail-map animate-fade-in-up delay-300">
+          <h3>Ubicación en Google Maps</h3>
+          <div class="map-container" id="map-iframe-container">
+            <!-- Iframe de Google Maps inyectado dinámicamente -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LADO DERECHO: BARRA LATERAL DEL ASESOR -->
+      <div class="detail-sidebar animate-fade-in delay-200">
+        <div class="agent-card-sidebar">
+          <div class="agent-avatar">
+            <img src="img/danny_moya.png" alt="Danny Moya - Asesor Inmobiliario">
+          </div>
+          <h3>Danny Moya</h3>
+          <p>Asesor Inmobiliario Premium</p>
+          
+          <div class="agent-divider"></div>
+          
+          <!-- Botón de WhatsApp Directo Dinámico -->
+          <a href="#" target="_blank" class="btn-sidebar-whatsapp" id="detail-wa-btn" style="margin-bottom: 20px;">
+            <svg viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.161.001 6.136 1.233 8.375 3.474a11.75 11.75 0 0 1 3.479 8.386c-.004 6.536-5.328 11.86-11.859 11.86h-.002c-2.008-.001-3.98-.529-5.733-1.53L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.451 5.402.002 9.799-4.394 9.802-9.798.002-2.618-1.017-5.08-2.87-6.934A9.75 9.75 0 0 0 11.861 1.082c-5.404 0-9.802 4.396-9.806 9.799-.001 1.633.483 3.22 1.4 4.632l-1.018 3.714 3.81-1.004zM16.59 13.91c-.267-.134-1.585-.783-1.83-.873-.247-.089-.427-.134-.607.134-.18.269-.696.873-.853 1.053-.158.18-.315.202-.582.067-.267-.134-1.13-.416-2.153-1.328-.795-.71-1.332-1.587-1.488-1.856-.157-.27-.017-.416.117-.55.121-.12.267-.314.401-.471.134-.157.179-.269.269-.449.09-.18.045-.337-.022-.471-.067-.134-.607-1.458-.83-2.002-.218-.522-.459-.452-.607-.46l-.517-.008c-.18 0-.472.067-.719.337-.247.269-.943.921-.943 2.247 0 1.326.966 2.607 1.101 2.787.135.18 1.9 2.9 4.606 4.07.643.277 1.145.443 1.536.568.647.206 1.237.177 1.703.107.519-.078 1.585-.648 1.808-1.275.225-.628.225-1.167.158-1.275-.068-.112-.248-.18-.515-.314z"/>
+            </svg>
+            <span>Consultar por WhatsApp</span>
+          </a>
+
+          <h4 style="color: var(--text-light); font-size: 1.1rem; text-align: left; margin-bottom: 12px; margin-top: 10px;">Solicitar Información</h4>
+          
+          <!-- Formulario lateral -->
+          <form class="agent-sidebar-form" id="detail-sidebar-form">
+            <input type="text" id="detail-form-name" placeholder="Tu Nombre Completo *" required autocomplete="name">
+            <input type="tel" id="detail-form-tel" placeholder="Tu Teléfono o WhatsApp *" required autocomplete="tel">
+            <textarea id="detail-form-msg" rows="4" placeholder="Me gustaría agendar una visita para conocer esta propiedad."></textarea>
+            <button type="submit" class="btn-sidebar-send" id="btn-submit-detail">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pie de Página -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="logo" style="margin-bottom: 20px;">
+          <div class="logo-icon">M</div>
+          <div class="logo-text" style="color: white;">Danny<span>Moya</span></div>
+        </a>
+        <p class="footer-desc">Tu mejor aliado para comprar o vender tu propiedad en Cochabamba con confianza, rapidez y la máxima plusvalía.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" id="social-fb">FB</a>
+          <a href="#" class="social-btn" id="social-ig">IG</a>
+          <a href="#" class="social-btn" id="social-wa">WA</a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Enlaces</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" id="foot-home">Inicio</a></li>
+          <li><a href="comprar.html" id="foot-buy">Comprar</a></li>
+          <li><a href="vender.html" id="foot-sell">Vender</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Zonas</h3>
+        <ul class="footer-links">
+          <li><a href="comprar.html?zona=Tiquipaya" id="foot-zone-tiq">Tiquipaya</a></li>
+          <li><a href="comprar.html?zona=Cercado" id="foot-zone-cer">Cercado</a></li>
+          <li><a href="comprar.html?zona=Sacaba" id="foot-zone-sac">Sacaba</a></li>
+          <li><a href="comprar.html?zona=Quillacollo" id="foot-zone-qui">Quillacollo</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+591 700 00000</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>contacto@dannymoya.bo</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Av. América #123, Cochabamba</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Inmobiliaria Danny Moya. Todos los derechos reservados.</p>
+      <p>Diseño Web Profesional y Minimalista</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
