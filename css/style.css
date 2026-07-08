@@ -1209,6 +1209,11 @@ footer {
   margin-top: 30px;
 }
 
+.form-group>select {
+  color: var(--text-light);
+}
+
+
 .form-group-full {
   grid-column: span 2;
 }
