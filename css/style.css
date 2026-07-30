@@ -409,14 +409,13 @@ footer {
   justify-content: space-between;
   gap: 80px;
   padding: 180px 0 100px;
-  background-color: var(--primary-dark);
+  /*background-color: var(--primary-dark);*/
   /*background-image: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);*/
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('../img/casa.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 
   color: var(--text-light);
   position: relative;
