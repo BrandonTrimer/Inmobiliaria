@@ -105,7 +105,59 @@ function initHomePage() {
       }
     });
   });
+
+  // Inicializar contador de estadísticas
+  initStatsCounter();
 }
+
+function initStatsCounter() {
+  const statsSection = document.querySelector("#stats-counter-section");
+  const counters = document.querySelectorAll(".stat-number");
+  
+  if (!statsSection || counters.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  observer.observe(statsSection);
+
+  function animateCounters() {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      const duration = 2000; // 2 segundos de duración
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Función de easing (easeOutQuad)
+        const easeProgress = progress * (2 - progress);
+        
+        const currentValue = Math.floor(easeProgress * target);
+        
+        counter.innerText = currentValue;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target;
+        }
+      }
+
+      requestAnimationFrame(update);
+    });
+  }
+}
+
 
 /* ==========================================
    3. PÁGINA DE COMPRAR (BÚSQUEDA Y FILTROS)
