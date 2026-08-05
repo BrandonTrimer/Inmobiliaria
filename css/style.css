@@ -23,6 +23,7 @@
   /* Oro Brillante */
   --accent-alt: #B87333;
   /* Cobre Dorado */
+  --target-vendido: #991616;
 
   /* Text & Information (Soft whites and light grays from the image) */
   --text-dark: #E0E0E0;
@@ -366,13 +367,19 @@ footer {
 
 /* Page Hero Section */
 .hero-page {
-  background-color: var(--bg-card);
+  /*background-color: var(--bg-card);*/
   color: var(--text-light);
   padding: 160px 0 100px;
   text-align: center;
   position: relative;
   /*background-image: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);*/
   overflow: hidden;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../img/casa.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .hero-page::before {
@@ -817,7 +824,7 @@ footer {
 }
 
 .tag-status.sold {
-  background-color: var(--accent-alt);
+  background-color: var(--target-vendido);
   /* Cobre Dorado */
 }
 
