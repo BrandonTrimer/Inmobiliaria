@@ -113,7 +113,7 @@ function initHomePage() {
 function initStatsCounter() {
   const statsSection = document.querySelector("#stats-counter-section");
   const counters = document.querySelectorAll(".stat-number");
-  
+
   if (!statsSection || counters.length === 0) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -138,12 +138,12 @@ function initStatsCounter() {
       function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // Función de easing (easeOutQuad)
         const easeProgress = progress * (2 - progress);
-        
+
         const currentValue = Math.floor(easeProgress * target);
-        
+
         counter.innerText = currentValue;
 
         if (progress < 1) {
@@ -211,9 +211,9 @@ function initComprarPage() {
 
     const propiedadesFiltradas = propiedades.filter(prop => {
       // Filtro de texto (título o dirección)
-      const matchesSearch = searchVal === "" || 
-                            prop.titulo.toLowerCase().includes(searchVal) || 
-                            prop.direccion.toLowerCase().includes(searchVal);
+      const matchesSearch = searchVal === "" ||
+        prop.titulo.toLowerCase().includes(searchVal) ||
+        prop.direccion.toLowerCase().includes(searchVal);
 
       // Filtro de Zona
       const matchesZone = zoneVal === "all" || prop.zona.toLowerCase() === zoneVal.toLowerCase();
@@ -277,7 +277,7 @@ function initVenderPage() {
     // Simular envío de formulario con efecto elegante
     const btnSubmit = sellForm.querySelector("button[type='submit']");
     const originalText = btnSubmit.innerText;
-    
+
     btnSubmit.disabled = true;
     btnSubmit.innerText = "Procesando solicitud...";
     btnSubmit.style.opacity = "0.7";
@@ -419,7 +419,7 @@ function initDetailPage() {
       e.preventDefault();
       const nombre = document.querySelector("#detail-form-name").value;
       const tel = document.querySelector("#detail-form-tel").value;
-      
+
       if (!nombre || !tel) {
         alert("Por favor, introduce tu nombre y teléfono.");
         return;
@@ -464,7 +464,7 @@ function createPropertyCardHTML(prop, index) {
   });
 
   // Características específicas
-  const featuresHTML = isTerreno 
+  const featuresHTML = isTerreno
     ? `
       <div class="feature-item">
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -512,7 +512,7 @@ function createPropertyCardHTML(prop, index) {
     `;
 
   return `
-    <div class="property-card animate-fade-in-up" style="animation-delay: ${index * 100}ms">
+    <div class="property-card animate-fade-in-up animate-show-scroll" style="animation-delay: ${index * 100}ms">
       <!-- Carrusel -->
       <div class="property-carousel-container">
         <div class="property-tags">
@@ -572,7 +572,7 @@ function setupCarousel(carouselContainer) {
   const prevBtn = carouselContainer.querySelector(".carousel-btn-prev");
   const nextBtn = carouselContainer.querySelector(".carousel-btn-next");
   const dots = carouselContainer.querySelectorAll(".carousel-indicators .carousel-dot");
-  
+
   if (!track) return;
 
   let currentIndex = 0;
