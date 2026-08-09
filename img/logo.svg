@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 120" width="100%" height="100%">
+  <!-- Letter D (Blue #1E65FF) -->
+  <path fill="#1E65FF" fill-rule="evenodd" d="
+    M 12 12
+    H 62
+    C 104 12 118 34 118 60
+    C 118 86 104 108 62 108
+    H 12
+    Z
+    M 38 34
+    H 58
+    C 80 34 89 45 89 60
+    C 89 75 80 86 58 86
+    H 38
+    Z" />
+
+  <!-- Number 9 (White #FFFFFF) -->
+  <path fill="#FFFFFF" fill-rule="evenodd" d="
+    M 112 12
+    C 131 12 144 25 144 42
+    L 144 72
+    C 144 94 132 108 112 108
+    C 99 108 89 101 89 92
+    C 89 84 95 78 103 78
+    C 108 78 112 81 114 85
+    C 115 89 117 91 121 91
+    C 126 91 129 82 129 70
+    L 129 62
+    C 125 66 119 69 111 69
+    C 94 69 83 56 83 41
+    C 83 24 96 12 112 12
+    Z
+    M 111 27
+    C 102 27 96 33 96 41
+    C 96 49 102 55 111 55
+    C 120 55 126 49 126 41
+    C 126 33 120 27 111 27
+    Z" />
+
+  <!-- Number 0 (White #FFFFFF) with dark cutout separation stroke over 9 -->
+  <path fill="#FFFFFF" fill-rule="evenodd" 
+        stroke="#1C1C1C" 
+        stroke-width="5.5" 
+        stroke-linejoin="round" 
+        d="
+    M 156 12
+    C 178 12 195 32 195 60
+    C 195 88 178 108 156 108
+    C 134 108 117 88 117 60
+    C 117 32 134 12 156 12
+    Z
+    M 156 32
+    C 146 32 138 44 138 60
+    C 138 76 146 88 156 88
+    C 166 88 174 76 174 60
+    C 174 44 166 32 156 32
+    Z" />
+</svg>
