@@ -1111,6 +1111,7 @@ footer {
 
 .intro-vender-content {
   flex: 1.2;
+  text-align: center;
 }
 
 .intro-vender-content h2 {
@@ -2080,5 +2081,329 @@ footer {
   animation-fill-mode: both;
 
   animation-range: entry 25% cover 25%;
+}
 
+/* ==========================================
+   7. CARRUSEL VERTICAL 3D (COVERFLOW STYLE)
+   ========================================== */
+
+.v-carousel-section {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0 60px;
+}
+
+.v-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.v-card {
+  position: absolute;
+  width: 270px;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.5s ease;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.v-card-inner {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background-color: var(--bg-card);
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.v-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.v-card-caption {
+  margin-top: 16px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.v-card-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.v-card-role {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* --- Estados 3D del Carrusel --- */
+
+/* Tarjeta Activa (Centro) */
+.v-card.active {
+  transform: translate3d(0, 0, 60px) scale(1.15);
+  opacity: 1;
+  z-index: 10;
+  filter: none;
+}
+
+.v-card.active .v-card-inner {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(33, 150, 243, 0.2);
+}
+
+.v-card.active .v-card-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.v-card.active .v-card-name {
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* Tarjetas Adyacentes (Izquierda y Derecha) */
+.v-card.prev {
+  transform: translate3d(-200px, 0, -40px) scale(0.83);
+  opacity: 0.65;
+  z-index: 5;
+  filter: brightness(0.85);
+}
+
+.v-card.next {
+  transform: translate3d(200px, 0, -40px) scale(0.83);
+  opacity: 0.65;
+  z-index: 5;
+  filter: brightness(0.85);
+}
+
+.v-card.prev .v-card-caption,
+.v-card.next .v-card-caption {
+  opacity: 0.75;
+  transform: translateY(2px);
+}
+
+.v-card.prev .v-card-role,
+.v-card.next .v-card-role {
+  display: none;
+}
+
+.v-card.prev .v-card-name,
+.v-card.next .v-card-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Tarjetas Ocultas (Más alejadas) */
+.v-card.hidden-left {
+  transform: translate3d(-360px, 0, -100px) scale(0.6);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.v-card.hidden-right {
+  transform: translate3d(360px, 0, -100px) scale(0.6);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --- Botones de Navegación Lateral --- */
+.v-carousel-nav {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #2A3447;
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 25;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-md);
+}
+
+.v-nav-prev {
+  left: 15px;
+}
+
+.v-nav-next {
+  right: 15px;
+}
+
+.v-carousel-nav:hover {
+  background-color: var(--secondary);
+  color: var(--primary-dark);
+  border-color: var(--secondary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+.v-carousel-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* --- Paginación de Puntos (Dots) --- */
+.v-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  position: relative;
+  z-index: 25;
+}
+
+.v-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v-dot:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.v-dot.active {
+  background-color: #0D1B2A;
+  border-color: var(--secondary);
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.6);
+  transform: scale(1.2);
+}
+
+/* --- Media Queries (Responsividad) --- */
+
+@media (max-width: 992px) {
+  .v-carousel-stage {
+    height: 420px;
+  }
+
+  .v-card {
+    width: 220px;
+  }
+
+  .v-card.prev {
+    transform: translate3d(-150px, 0, -40px) scale(0.83);
+  }
+
+  .v-card.next {
+    transform: translate3d(150px, 0, -40px) scale(0.83);
+  }
+
+  .v-nav-prev {
+    left: 5px;
+  }
+
+  .v-nav-next {
+    right: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .v-carousel-stage {
+    height: 370px;
+  }
+
+  .v-card {
+    width: 180px;
+  }
+
+  .v-card.active {
+    transform: translate3d(0, 0, 40px) scale(1.12);
+  }
+
+  .v-card.prev {
+    transform: translate3d(-110px, 0, -30px) scale(0.8);
+    opacity: 0.55;
+  }
+
+  .v-card.next {
+    transform: translate3d(110px, 0, -30px) scale(0.8);
+    opacity: 0.55;
+  }
+
+  .v-card-name {
+    font-size: 1.1rem;
+  }
+
+  .v-card-role {
+    font-size: 0.85rem;
+  }
+
+  .v-carousel-nav {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .v-carousel-stage {
+    height: 330px;
+  }
+
+  .v-card {
+    width: 150px;
+  }
+
+  .v-card.prev {
+    transform: translate3d(-80px, 0, -20px) scale(0.78);
+    opacity: 0.45;
+  }
+
+  .v-card.next {
+    transform: translate3d(80px, 0, -20px) scale(0.78);
+    opacity: 0.45;
+  }
+
+  .v-card-inner {
+    border-radius: 18px;
+  }
+
+  .v-nav-prev {
+    left: 0px;
+  }
+
+  .v-nav-next {
+    right: 0px;
+  }
 }

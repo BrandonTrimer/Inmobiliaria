@@ -257,6 +257,9 @@ function initComprarPage() {
    ========================================== */
 
 function initVenderPage() {
+  // Inicializar carrusel vertical 3D de asesores
+  initVerticalCarousel();
+
   const sellForm = document.querySelector("#sell-form");
   if (!sellForm) return;
 
@@ -291,6 +294,169 @@ function initVenderPage() {
     }, 1500);
   });
 }
+
+/* ==========================================
+   4.1 CARRUSEL VERTICAL 3D (COVERFLOW)
+   ========================================== */
+
+function initVerticalCarousel() {
+  const stage = document.querySelector("#v-carousel-stage");
+  if (!stage) return;
+
+  const cards = Array.from(stage.querySelectorAll(".v-card"));
+  const prevBtn = document.querySelector("#v-prev-btn");
+  const nextBtn = document.querySelector("#v-next-btn");
+  const dotsContainer = document.querySelector("#v-carousel-dots");
+
+  if (cards.length === 0) return;
+
+  // Índice activo inicial (1 = Simon Hadley para coincidir con la imagen de referencia)
+  let currentIndex = 1;
+  const totalCards = cards.length;
+
+  // Generar puntos de paginación (dots)
+  if (dotsContainer) {
+    dotsContainer.innerHTML = "";
+    cards.forEach((_, idx) => {
+      const dot = document.createElement("span");
+      dot.className = `v-dot ${idx === currentIndex ? 'active' : ''}`;
+      dot.setAttribute("data-index", idx);
+      dot.addEventListener("click", () => {
+        currentIndex = idx;
+        update3DCarousel();
+        resetAutoplay();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Actualizar posiciones y transformaciones 3D
+  function update3DCarousel() {
+    cards.forEach((card, idx) => {
+      card.classList.remove("active", "prev", "next", "hidden-left", "hidden-right");
+
+      // Calcular offset considerando loop circular
+      let offset = idx - currentIndex;
+      if (offset > totalCards / 2) offset -= totalCards;
+      if (offset < -totalCards / 2) offset += totalCards;
+
+      if (offset === 0) {
+        card.classList.add("active");
+      } else if (offset === -1) {
+        card.classList.add("prev");
+      } else if (offset === 1) {
+        card.classList.add("next");
+      } else if (offset < -1) {
+        card.classList.add("hidden-left");
+      } else if (offset > 1) {
+        card.classList.add("hidden-right");
+      }
+    });
+
+    // Actualizar estado de dots
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll(".v-dot");
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+  }
+
+  // Clic en tarjetas adyacentes para ponerlas en el centro
+  cards.forEach((card, idx) => {
+    card.addEventListener("click", () => {
+      if (idx !== currentIndex) {
+        currentIndex = idx;
+        update3DCarousel();
+        resetAutoplay();
+      }
+    });
+  });
+
+  // Botón Siguiente
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentIndex = (currentIndex + 1) % totalCards;
+      update3DCarousel();
+      resetAutoplay();
+    });
+  }
+
+  // Botón Anterior
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+      update3DCarousel();
+      resetAutoplay();
+    });
+  }
+
+  // Gestos Táctiles Swipe (para celulares y tablets)
+  let startX = 0;
+  let startY = 0;
+
+  stage.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  stage.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = startX - endX;
+    const diffY = startY - endY;
+
+    // Solo si el deslizamiento es más horizontal que vertical
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        // Swipe Izquierda -> Siguiente
+        currentIndex = (currentIndex + 1) % totalCards;
+      } else {
+        // Swipe Derecha -> Anterior
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+      }
+      update3DCarousel();
+      resetAutoplay();
+    }
+  }, { passive: true });
+
+  // Transición automática suave opcional (Autoplay)
+  let autoplayTimer = null;
+
+  function startAutoplay() {
+    autoplayTimer = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalCards;
+      update3DCarousel();
+    }, 5000);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+  }
+
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  // Pausar al pasar el mouse por encima
+  const wrapper = document.querySelector(".v-carousel-wrapper");
+  if (wrapper) {
+    wrapper.addEventListener("mouseenter", stopAutoplay);
+    wrapper.addEventListener("mouseleave", startAutoplay);
+  }
+
+  // Render inicial
+  update3DCarousel();
+  startAutoplay();
+}
+
 
 /* ==========================================
    5. PÁGINA DE DETALLE DE PROPIEDAD

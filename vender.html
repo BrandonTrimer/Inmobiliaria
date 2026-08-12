@@ -23,7 +23,7 @@
   <header>
     <div class="nav-container">
       <a href="index.html" class="logo" id="header-logo">
-        <img src="img/logo.svg" alt="Grupo D90 Inmobiliaria" class="logo-img">
+        <img src="img/logoD90.svg" alt="Grupo D90 Inmobiliaria" class="logo-img">
       </a>
 
       <ul class="nav-menu" id="nav-links-list">
@@ -62,16 +62,103 @@
           entendimiento de la fluctuación de precios de mercado en zonas clave, y una estrategia de marketing digital
           inmobiliario que expone tu inmueble ante los compradores correctos de inmediato.</p>
       </div>
-      <div class="intro-vender-image animate-fade-in delay-200 animate-show-scroll">
+      <!--<div class="intro-vender-image animate-fade-in delay-200 animate-show-scroll">
         <div class="experience-badge-card">
           <div class="experience-number">10+</div>
           <div class="experience-text">Años de Experiencia</div>
           <p style="margin-top: 10px; color: rgba(255,255,255,0.7); font-size: 0.95rem;">En el mercado inmobiliario de
             Cochabamba, facilitando transacciones seguras y exitosas.</p>
         </div>
-      </div>
+      </div>-->
     </div>
   </section>
+
+  <!-- Carrusel 3D de Asesores / Equipo (Formato Vertical) -->
+  <section class="v-carousel-section animate-fade-in-up animate-show-scroll" id="team-carousel-section">
+    <!--<div class="container" style="padding: 20px 0 80px;">
+      <div class="section-title" style="margin-bottom: 40px;">
+        <h2>Nuestro Equipo de Especialistas</h2>
+        <p>Asesores experimentados comprometidos a brindarte la mejor estrategia y acompañamiento en la venta de tu
+          patrimonio.</p>
+      </div>-->
+
+    <div class="v-carousel-wrapper">
+      <!-- Botón de Navegación Izquierdo -->
+      <button class="v-carousel-nav v-nav-prev" id="v-prev-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Escenario 3D de Tarjetas -->
+      <div class="v-carousel-stage" id="v-carousel-stage">
+        <!-- Slide 0 -->
+        <div class="v-card" data-index="0">
+          <div class="v-card-inner">
+            <img src="img/cliente1.jpeg" alt="Suzanne Yorke" class="v-card-img"
+              onerror="this.onerror=null; this.src='img/usuario.jpg';">
+          </div>
+          <!--<div class="v-card-caption">
+            <h4 class="v-card-name">Suzanne Yorke</h4>
+            <p class="v-card-role">Asesora Comercial</p>
+          </div>-->
+        </div>
+
+        <!-- Slide 1 (Activo inicialmente) -->
+        <div class="v-card" data-index="1">
+          <div class="v-card-inner">
+            <img src="img/cliente2.jpeg" alt="Simon Hadley" class="v-card-img"
+              onerror="this.onerror=null; this.src='img/danny_moya.png';">
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="v-card" data-index="2">
+          <div class="v-card-inner">
+            <img src="img/cliente3.jpeg" alt="Harriet Johnson" class="v-card-img"
+              onerror="this.onerror=null; this.src='img/usuario.jpg';">
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="v-card" data-index="3">
+          <div class="v-card-inner">
+            <img src="img/cliente4.jpeg" alt="Carlos Mendoza" class="v-card-img"
+              onerror="this.onerror=null; this.src='img/danny_moya.png';">
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="v-card" data-index="4">
+          <div class="v-card-inner">
+            <img src="img/cliente5.jpeg" alt="Elena Rostova" class="v-card-img"
+              onerror="this.onerror=null; this.src='img/usuario.jpg';">
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="v-card" data-index="4">
+          <div class="v-card-inner">
+            <img src="img/cliente6.jpeg" alt="Elena Rostova" class="v-card-img"
+              onerror="this.onerror=null; this.src='img/usuario.jpg';">
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón de Navegación Derecho -->
+      <button class="v-carousel-nav v-nav-next" id="v-next-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Paginación de Puntos (Dots) -->
+    <div class="v-carousel-dots" id="v-carousel-dots"></div>
+    </div>
+  </section>
+
 
   <!-- Sección de los 4 Aspectos Importantes -->
   <section class="aspects-section" id="sell-pillars-section">
@@ -230,7 +317,7 @@
     <div class="footer-grid">
       <div class="footer-col">
         <a href="index.html" class="logo" style="margin-bottom: 20px;">
-          <img src="img/logo.svg" alt="Grupo D90 Inmobiliaria" class="logo-img">
+          <img src="img/logoD90.svg" alt="Grupo D90 Inmobiliaria" class="logo-img">
         </a>
         <p class="footer-desc">Tu mejor aliado para comprar o vender tu propiedad en Cochabamba con confianza, rapidez y
           la máxima plusvalía.</p>
