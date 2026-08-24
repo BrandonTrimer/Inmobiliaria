@@ -599,8 +599,8 @@ function initDetailPage() {
   // WhatsApp Button Dinámico
   const waBtn = document.querySelector("#detail-wa-btn");
   if (waBtn) {
-    const textMsg = encodeURIComponent(`Hola Danny Moya, estoy interesado en la propiedad "${prop.titulo}" (${prop.tipo}) ubicada en ${prop.zona}. Quisiera agendar una visita.`);
-    waBtn.setAttribute("href", `https://wa.me/59170000000?text=${textMsg}`);
+    const textMsg = encodeURIComponent(`Hola Danny Moooya, estoy interesado en la propiedad "${prop.titulo}" (${prop.tipo}) ubicada en ${prop.zona}. Quisiera agendar una visita.`);
+    waBtn.setAttribute("href", `https://wa.me/59164943836?text=${textMsg}`);
   }
 }
 
