@@ -266,32 +266,38 @@ function initVenderPage() {
   sellForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Obtener valores para feedback
-    const nombre = document.querySelector("#vender-nombre").value;
-    const email = document.querySelector("#vender-email").value;
-    const telefono = document.querySelector("#vender-tel").value;
+    // Obtener valores de los campos del formulario
+    const nombre = document.querySelector("#vender-nombre").value.trim();
+    const telefono = document.querySelector("#vender-tel").value.trim();
+    const email = document.querySelector("#vender-email").value.trim();
+    const tipo = document.querySelector("#vender-tipo").value;
     const zona = document.querySelector("#vender-zona").value;
+    const direccion = document.querySelector("#vender-direccion").value.trim();
+    const mensaje = document.querySelector("#vender-mensaje").value.trim();
 
-    if (!nombre || !email || !telefono || zona === "all") {
+    if (!nombre || !email || !telefono) {
       alert("Por favor, complete todos los campos obligatorios.");
       return;
     }
 
-    // Simular envío de formulario con efecto elegante
-    const btnSubmit = sellForm.querySelector("button[type='submit']");
-    const originalText = btnSubmit.innerText;
+    // Construir mensaje estructurado para WhatsApp
+    const mensajeWhatsApp = `*¡Hola Danny Moya! Quiero registrar mi propiedad para la venta.*\n\n` +
+      `📋 *Datos de Contacto:*\n` +
+      `• *Nombre:* ${nombre}\n` +
+      `• *Teléfono:* ${telefono}\n` +
+      `• *Email:* ${email}\n\n` +
+      `🏠 *Detalles de la Propiedad:*\n` +
+      `• *Tipo:* ${tipo}\n` +
+      `• *Zona:* ${zona}\n` +
+      `• *Dirección:* ${direccion || "No especificada"}\n` +
+      `• *Detalles:* ${mensaje || "Sin detalles adicionales"}`;
 
-    btnSubmit.disabled = true;
-    btnSubmit.innerText = "Procesando solicitud...";
-    btnSubmit.style.opacity = "0.7";
+    const numeroWhatsApp = "59164943836";
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
 
-    setTimeout(() => {
-      alert(`¡Muchas gracias, ${nombre}! Danny Moya ha recibido la información de tu propiedad en ${zona}. Nos comunicaremos contigo al teléfono ${telefono} o correo ${email} en menos de 24 horas.`);
-      sellForm.reset();
-      btnSubmit.disabled = false;
-      btnSubmit.innerText = originalText;
-      btnSubmit.style.opacity = "1";
-    }, 1500);
+    // Abrir WhatsApp con los datos del formulario cargados
+    window.open(urlWhatsApp, "_blank");
+    sellForm.reset();
   });
 }
 
@@ -599,7 +605,7 @@ function initDetailPage() {
   // WhatsApp Button Dinámico
   const waBtn = document.querySelector("#detail-wa-btn");
   if (waBtn) {
-    const textMsg = encodeURIComponent(`Hola Danny Moooya, estoy interesado en la propiedad "${prop.titulo}" (${prop.tipo}) ubicada en ${prop.zona}. Quisiera agendar una visita.`);
+    const textMsg = encodeURIComponent(`Hola Danny Moya, estoy interesado en la propiedad "${prop.titulo}" (${prop.tipo}) ubicada en ${prop.zona}. Quisiera agendar una visita.`);
     waBtn.setAttribute("href", `https://wa.me/59164943836?text=${textMsg}`);
   }
 }
