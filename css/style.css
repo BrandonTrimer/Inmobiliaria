@@ -1261,7 +1261,7 @@ footer {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--secondary-light);
+  color: var(--text-light);
   font-size: 0.9rem;
 }
 
